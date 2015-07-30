@@ -7,11 +7,15 @@
       $(function() {
         $("#toPresets").hide();
         $("#subjectPresets").hide();
+        $("#bodyPresets").hide();
         $("#toButton").click(function() {
           $("#toPresets").toggle(500);
         });
         $("#subjectButton").click(function() {
           $("#subjectPresets").toggle(500);
+        });
+        $("#bodyButton").click(function() {
+          $("#bodyPresets").toggle(500);
         });
       });
     </script>
@@ -64,7 +68,7 @@
               <input type="text" class="item-input" id="to4" placeholder="reciever@theiremail.com">
             </div>
             <div class="item-input-wrapper" id="toPreset5">
-              <input type="text" class="item-input" id="to1" placeholder="reciever@theiremail.com">
+              <input type="text" class="item-input" id="to5" placeholder="reciever@theiremail.com">
             </div>
           </div>
         </div>
@@ -84,12 +88,25 @@
            </div>
           </div>
         </div>
+        
         <div class="item">
           Body:<br>
           <button class="item-button" id="bodyButton">SHOW</button>
           <div id="bodyPresets">
             <div class="item-input-wrapper" id="bodyPreset1">
-              
+              <input type="text" class="item-input" id="body1" placeholder="Hi, this is an email body!">
+            </div>
+            <div class="item-input-wrapper" id="bodyPreset2">
+              <input type="text" class="item-input" id="body2" placeholder="Hi, this is an email body!">
+            </div>
+            <div class="item-input-wrapper" id="bodyPreset3">
+              <input type="text" class="item-input" id="body3" placeholder="Hi, this is an email body!">
+            </div>
+            <div class="item-input-wrapper" id="bodyPreset4">
+              <input type="text" class="item-input" id="body4" placeholder="Hi, this is an email body!">
+            </div>
+            <div class="item-input-wrapper" id="bodyPreset5">
+              <input type="text" class="item-input" id="body5" placeholder="Hi, this is an email body!">
             </div>
           </div>
         </div>
