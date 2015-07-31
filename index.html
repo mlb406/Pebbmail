@@ -19,8 +19,51 @@
         });
         //----------ON "SEND" CLICK----------------
         $("#submitButton").click(function() {
+          var gmailAddr = $("#gmail_addr").val();
+          var gmailPass = $("#gmail_pass").val();
+          
           var to1 = $("#to1").val();
-          alert(to1);
+          var to2 = $("#to2").val();
+          var to3 = $("#to3").val();
+          var to4 = $("#to4").val();
+          var to5 = $("#to5").val();
+          
+          var sub1 = $("#sub1").val();
+          var sub2 = $("#sub2").val();
+          var sub3 = $("#sub3").val();
+          
+          var body1 = $("#body1").val();
+          var body2 = $("#body2").val();
+          var body3 = $("#body3").val();
+          var body4 = $("#body4").val();
+          var body5 = $("#body5").val();
+          
+          var options = { 
+            gmail: { 
+              address: gmailAddr, 
+              password: gmailPass 
+            },
+            to: { 
+              to_1: to1, 
+              to_2: to2, 
+              to_3: to3, 
+              to_4: to4,
+              to_5: to5
+            },
+            subject: {
+              sub_1: sub1,
+              sub_2: sub2,
+              sub_3: sub3
+            }, 
+            body: { 
+              body_1: body1,
+              body_2: body2,
+              body_3: body3,
+              body_4: body4,
+              body_5: body5
+            }
+          }
+          $("#resultsLabel").html(JSON.stringify(options));
         });
       });
       
@@ -137,7 +180,10 @@
     <div class="item-container">
       <div class="item-container-header">Submit settings</div>
       <div class="item-container-content">
-        <button class="item-button" id="submitButton">SUBMIT</button>
+        <div class="item"><button class="item-button" id="submitButton">SUBMIT</button></div>
+        <label class="item" id="resultsLabel">
+          
+        </label>
       </div>
     </div>
   </body>
