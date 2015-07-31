@@ -63,7 +63,8 @@
               body_5: body5
             }
           }
-          $("#resultsLabel").html(JSON.stringify(options));
+          var optionsToSend = JSON.stringify(options);
+          document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
         });
       });
       
