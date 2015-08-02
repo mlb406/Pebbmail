@@ -92,20 +92,20 @@
           }
           var optionsToSend = JSON.stringify(options);
           
-          console.log($.inArray('not set', detailsArray));
-          
           if ($.inArray('not set', detailsArray) != -1) {
              var x = confirm('There are some details not set - continue?');
              if (x !== true) {
-               alert('ok');
+               return;
              } else {
                document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
                alert("redirected");
              }
+          } else {
+            document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
+            alert('redirected1');
           }
           
-          document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
-          alert('redirected1');
+          
         });
       });
       
