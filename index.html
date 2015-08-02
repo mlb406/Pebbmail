@@ -19,25 +19,48 @@
         });
         //----------ON "SEND" CLICK----------------
         $("#submitButton").click(function() {
+          var detailsArray = new Array();
           var gmailAddr = $("#gmail_addr").val();
+          detailsArray[detailsArray.length] = gmailAddr;
           var gmailPass = $("#gmail_pass").val();
+          detailsArray[detailsArray.length] = gmailPass;
           
           var to1 = $("#to1").val();
+          detailsArray[detailsArray.length] = to1;
           var to2 = $("#to2").val();
+          detailsArray[detailsArray.length] = to2;
           var to3 = $("#to3").val();
+          detailsArray[detailsArray.length] = to3;
           var to4 = $("#to4").val();
+          detailsArray[detailsArray.length] = to4;
           var to5 = $("#to5").val();
+          detailsArray[detailsArray.length] = to5;
           
           var sub1 = $("#sub1").val();
+          detailsArray[detailsArray.length] = sub1;
           var sub2 = $("#sub2").val();
+          detailsArray[detailsArray.length] = sub2;
           var sub3 = $("#sub3").val();
+          detailsArray[detailsArray.length] = sub3;
           
           var body1 = $("#body1").val();
+          detailsArray[detailsArray.length] = body1;
           var body2 = $("#body2").val();
+          detailsArray[detailsArray.length] = body2;
           var body3 = $("#body3").val();
+          detailsArray[detailsArray.length] = body3;
           var body4 = $("#body4").val();
+          detailsArray[detailsArray.length] = body4;
           var body5 = $("#body5").val();
+          detailsArray[detailsArray.length] = body5;
           
+          for (var i = 0; i < detailsArray.length, i++) {
+            if (detailsArray[i] !== null || detailsArray[i] !== undefined) {
+              detailsArray[i] = "undefined"
+            }
+            
+          }
+          alert()
           var options = { 
             gmail: { 
               address: gmailAddr, 
@@ -78,6 +101,7 @@
         <div class="item">
           Hi.<br>
           Welcome to Mail for Pebble, the app allowing all Pebble users to send emails, directly from their watch.
+          <br><strong>NOTE: THIS WEBPAGE IS CURRENTLY BEING DEVELOPED. YOU MAY SEE SOME STRANGE THINGS.</strong>
         </div>
       </div>
     </div>
