@@ -93,7 +93,7 @@
           var optionsToSend = JSON.stringify(options);
           
           
-          if ($.inArray('not set', detailsArray) == -1) {
+          if ($.inArray('not set', detailsArray) <= -1) {
              var x = confirm('There are some details not set - continue?');
              if (x === false) {
                return
