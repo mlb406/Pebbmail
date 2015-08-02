@@ -96,7 +96,7 @@
           if ($.inArray('not set', detailsArray) <= -1) {
              var x = confirm('There are some details not set - continue?');
              if (x === false) {
-               return
+               return;
              } else {
                document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
                alert("redirected");
@@ -104,7 +104,7 @@
           }
           
           document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
-          alert('redirected');
+          alert('redirected1');
         });
       });
       
