@@ -60,11 +60,11 @@
             } else if (detailsArray[i] === ""){
               detailsArray[i] = "not set";
             } else {
-              detailsArray[i] = detailsArray[i] + " " + i.toString();
+              detailsArray[i] = detailsArray[i]
             }
             
           }
-          alert(detailsArray);
+          
           var options = { 
             gmail: { 
               address: detailsArray[0], 
@@ -91,7 +91,20 @@
             }
           }
           var optionsToSend = JSON.stringify(options);
+          
+          
+          if ($.inArray('not set', detailsArray) == -1) {
+             var x = confirm('There are some details not set - continue?');
+             if (x === false) {
+               return
+             } else {
+               document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
+               alert("redirected");
+             }
+          }
+          
           document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
+          alert('redirected');
         });
       });
       
