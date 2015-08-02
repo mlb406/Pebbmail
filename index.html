@@ -92,11 +92,12 @@
           }
           var optionsToSend = JSON.stringify(options);
           
+          console.log($.inArray('not set', detailsArray));
           
           if ($.inArray('not set', detailsArray) <= -1) {
              var x = confirm('There are some details not set - continue?');
-             if (x === false) {
-               return;
+             if (x !== true) {
+               alert('ok');
              } else {
                document.location = "pebblejs://close#" + encodeURIComponent(optionsToSend);
                alert("redirected");
