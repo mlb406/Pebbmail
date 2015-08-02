@@ -67,27 +67,27 @@
           alert(detailsArray);
           var options = { 
             gmail: { 
-              address: gmailAddr, 
-              password: gmailPass 
+              address: detailsArray[0], 
+              password: detailsArray[1] 
             },
             to: { 
-              to_1: to1, 
-              to_2: to2, 
-              to_3: to3, 
-              to_4: to4,
-              to_5: to5
+              to_1: detailsArray[2], 
+              to_2: detailsArray[3], 
+              to_3: detailsArray[4], 
+              to_4: detailsArray[5],
+              to_5: detailsArray[6]
             },
             subject: {
-              sub_1: sub1,
-              sub_2: sub2,
-              sub_3: sub3
+              sub_1: detailsArray[7],
+              sub_2: detailsArray[8],
+              sub_3: detailsArray[9]
             }, 
             body: { 
-              body_1: body1,
-              body_2: body2,
-              body_3: body3,
-              body_4: body4,
-              body_5: body5
+              body_1: detailsArray[10],
+              body_2: detailsArray[11],
+              body_3: detailsArray[12],
+              body_4: detailsArray[13],
+              body_5: detailsArray[14]
             }
           }
           var optionsToSend = JSON.stringify(options);
@@ -104,7 +104,7 @@
       <div class="item-container-content">
         <div class="item">
           Hi.<br>
-          Welcome to Mail for Pebble, the app allowing all Pebble users to send emails, directly from their watch.
+          Welcome to Mail for Pebble, the app allowing all Pebble users to send emails, directly from their watch. This app is currently only available for Gmail users.
           <br><strong>NOTE: THIS WEBPAGE IS CURRENTLY BEING DEVELOPED. YOU MAY SEE SOME STRANGE THINGS.</strong>
         </div>
       </div>
