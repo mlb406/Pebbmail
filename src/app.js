@@ -11,7 +11,7 @@ var ajax = require('ajax');
 var Vibe = require('ui/vibe');
 var Settings = require('settings');
 var main = new UI.Card({
-  title: 'Pebbmail',
+  title: 'Mail for Pebble',
   body: 'Press select to begin!',
 });
 
@@ -26,24 +26,58 @@ Settings.config(
   function(e) {
     console.log("Settings closed!");
     var options = e.options;
-    localStorage.setItem(1, options.gmail.address);
-    localStorage.setItem(2, options.gmail.password);
+    console.log(JSON.stringify(options));
+    var gmailAddr = options.gmail.address;
+   
     
-    localStorage.setItem(11, options.to.to_1);
-    localStorage.setItem(12, options.to.to_2);
-    localStorage.setItem(13, options.to.to_3);
-    localStorage.setItem(14, options.to.to_4);
-    localStorage.setItem(15, options.to.to_5);
+    var gmailPass = options.gmail.password;
     
-    localStorage.setItem(21, options.subject.sub_1);
-    localStorage.setItem(22, options.subject.sub_2);
-    localStorage.setItem(23, options.subject.sub_3);
     
-    localStorage.setItem(31, options.body.body_1);
-    localStorage.setItem(32, options.body.body_2);
-    localStorage.setItem(33, options.body.body_3);
-    localStorage.setItem(34, options.body.body_4);
-    localStorage.setItem(35, options.body.body_5);
+    var to1 = options.to.to_1;
+    
+    var to2 = options.to.to_2;
+    
+    var to3 = options.to.to_3;
+    
+    var to4 = options.to.to_4;
+    
+    var to5 = options.to.to_5;
+    
+    var sub1 = options.subject.sub_1;
+    
+    var sub2 = options.subject.sub_2;
+    
+    var sub3 = options.subject.sub_3;
+    
+    var body1 = options.body.body_1;
+    
+    var body2 = options.body.body_2;
+    
+    var body3 = options.body.body_3;
+    
+    var body4 = options.body.body_4;
+    
+    var body5 = options.body.body_5;
+    
+    
+    localStorage.setItem(1, gmailAddr);
+    localStorage.setItem(2, gmailPass);
+    
+    localStorage.setItem(11, to1);
+    localStorage.setItem(12, to2);
+    localStorage.setItem(13, to3);
+    localStorage.setItem(14, to4);
+    localStorage.setItem(15, to5);
+    
+    localStorage.setItem(21, sub1);
+    localStorage.setItem(22, sub2);
+    localStorage.setItem(23, sub3);
+    
+    localStorage.setItem(31, body1);
+    localStorage.setItem(32, body2);
+    localStorage.setItem(33, body3);
+    localStorage.setItem(34, body4);
+    localStorage.setItem(35, body5);
     Vibe.vibrate('double');
     main.body('Settings recieved!');
     setTimeout(function() {
@@ -149,19 +183,32 @@ main.on('click', 'select', function(e) {
   
           ajax(
           {
-            url: url
+            url: url,
+            type: 'json'
           },
             function(data) {
-              console.log('success');
+              console.log(data.success);
+              console.log(data);
+              console.log(JSON.stringify(data));
+              if (data.success == "true") {
+                console.log('success');
+                sentCard.title('Success');
+                sentCard.body('Email sent!');
+                Vibe.vibrate('double');
+              } else {
+                console.log('error');
+                sentCard.title('Error');
+                sentCard.body('An error occured. Please try again later or check entered parameters');
+                Vibe.vibrate('long');
+              }
               
-              sentCard.title('Success');
-              sentCard.body('Email sent!');
-              Vibe.vibrate('double');
+              
+              
             },
             function(error) {
               console.log('error: ' + error);
-              confirmCard.title('Error');
-              confirmCard.body('An error occured:\n' + error);
+              sentCard.title('Error');
+              sentCard.body('An error occured:\n' + error);
             }
   
           );

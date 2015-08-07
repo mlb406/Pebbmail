@@ -4,7 +4,7 @@
         "configurable"
     ],
     "companyName": "mlb406@gmail.com",
-    "longName": "Pebbmail ",
+    "longName": "Mail for pebble",
     "projectType": "pebblejs",
     "resources": {
         "media": [
@@ -42,11 +42,12 @@
         ]
     },
     "sdkVersion": "3",
-    "shortName": "Pebbmail",
+    "shortName": "Mail",
     "uuid": "ecc2b9a6-3151-46c0-a6c7-08e5cd082b46",
     "versionCode": 1,
     "versionLabel": "0.1",
     "watchapp": {
+        "hiddenApp": false,
         "watchface": false
     }
 }
