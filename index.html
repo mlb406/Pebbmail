@@ -13,7 +13,7 @@
           var rs = JSON.parse(localStorage.getItem(1));
           
         } catch(err) {
-          var rs = null;
+          var rs = {gmail: {address: null}};
         }
         if (rs.gmail.address !== null) {
           $("#gmail_addr").val(rs.gmail.address);
