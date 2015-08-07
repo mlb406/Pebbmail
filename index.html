@@ -9,9 +9,8 @@
         $("#toPresets").hide();
         $("#subjectPresets").hide();
         $("#bodyPresets").hide();
-        var rs = JSON.parse(localStorage.getItem(1));
-        
-        if (!rs.gmail.address) {
+        try {
+          var rs = JSON.parse(localStorage.getItem(1));
           $("#gmail_addr").val(rs.gmail.address);
           $("#gmail_pass").val(rs.gmail.password);
           $("#to1").val(rs.to.to_1);
@@ -27,9 +26,14 @@
           $("#body3").val(rs.body.body_3);
           $("#body4").val(rs.body.body_4);
           $("#body5").val(rs.body.body_5);
-        } else {
+        } catch(err) {
           return;
         }
+        
+        
+        
+          
+        
         
         
         $("#toButton").click(function() {
