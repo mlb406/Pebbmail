@@ -11,7 +11,7 @@
         $("#bodyPresets").hide();
         var rs = JSON.parse(localStorage.getItem(1));
         
-        if (rs.gmail.address !== null) {
+        if (!rs.gmail.address) {
           $("#gmail_addr").val(rs.gmail.address);
           $("#gmail_pass").val(rs.gmail.password);
           $("#to1").val(rs.to.to_1);
