@@ -5,9 +5,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       $(function() {
+        //------------ON PAGE LOAD-------------
         $("#toPresets").hide();
         $("#subjectPresets").hide();
         $("#bodyPresets").hide();
+        var rs = JSON.parse(localStorage.getItem(1));
+        
+        if (rs.gmail.address !== null) {
+          $("#gmail_addr").val(rs.gmail.address);
+          $("#gmail_pass").val(rs.gmail.password);
+          $("#to1").val(rs.to.to_1);
+          $("#to2").val(rs.to.to_2);
+          $("#to3").val(rs.to.to_3);
+          $("#to4").val(rs.to.to_4);
+          $("#to5").val(rs.to.to_5);
+          $("#sub1").val(rs.subject.sub_1);
+          $("#sub1").val(rs.subject.sub_1);
+        }
+        
+        
         $("#toButton").click(function() {
           $("#toPresets").toggle(500);
         });
@@ -54,6 +70,8 @@
           var body5 = $("#body5").val();
           detailsArray[detailsArray.length] = body5;
           
+          var settingsArr = new Array();
+          
           for (var i = 0; i < detailsArray.length; i++) {
             if (detailsArray[i] === null || detailsArray[i] === undefined) {
               detailsArray[i] = "not set";
@@ -64,6 +82,7 @@
             }
             
           }
+          
           
           var options = { 
             gmail: { 
@@ -91,6 +110,7 @@
             }
           }
           var optionsToSend = JSON.stringify(options);
+          localStorage.setItem(1, optionsToSend);
           
           if ($.inArray('not set', detailsArray) != -1) {
              var x = confirm('There are some details not set - continue?');
@@ -120,6 +140,7 @@
         <div class="item">
           Hi.<br>
           Welcome to Mail for Pebble, the app allowing all Pebble users to send emails, directly from their watch. This app is currently only available for Gmail users.
+          <br><strong>WARNING: THIS WEBSITE IS CURRENTLY BEING DEVELOPED - EXPECT STRANGE THINGS TO HAPPEN</strong>
           <br>Website update notes:
           <br> -Added system to prevent empty forms being submitted, causing the app to crash.
         </div>
