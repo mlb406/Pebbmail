@@ -28,7 +28,7 @@
           $("#body5").val(rs.body.body_5);
           
         } catch(err) {
-          return;
+          console.log(err.message);
         }
         
         $("#toButton").click(function() {
